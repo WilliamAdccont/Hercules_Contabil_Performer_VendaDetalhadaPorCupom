@@ -1,0 +1,12 @@
+﻿{
+	"AUTOMATION_NAME" : "ADCCONT_HERCULES_CONTABIL_PERFORMER_PRESTACAODECONTAS",
+	"PROCESSO_FILA" : "TRUE",
+	"COLETA" : "TRUE",
+	"FOLDER" : "Contabil",
+	"PROCESSOS_UTILIZADOS" : "",
+	"FILA" : "Hercules_VendasDetalhadasPorCupom",
+	"NOME_PRODUTO":" Vendas detalhadas por cupom",
+	"BUCKET" : "",
+	"TEMP_RPA" : "C:\\temp_RPA",
+	"REPORT_PATH" : "C:\\temp_RPA\\EXECUTION_REPORT.xlsx",
+}

@@ -1,0 +1,782 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1LOGIN_DEGIUSTONE" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:uou="clr-namespace:UiPath.OrchestratorClient.Utilities;assembly=UiPath.System.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="io_jsConfig" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="io_jsExecutionReport" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_jsContent" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_jsAssets" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="io_jsCredentialsValues" Type="InOutArgument(scg:Dictionary(x:String, uou:Credential))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>933,3547</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>L_SEGBR_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.OrchestratorClient.Utilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Terminal</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="1Login_Degustone" sap:VirtualizedContainerService.HintSize="771,3482" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="blInvalidEnvironment" />
+      <Variable x:TypeArguments="x:Boolean" Name="blInvalidUnity" />
+      <Variable x:TypeArguments="x:String" Name="Password" />
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of string)]" Name="list_string" />
+      <Variable x:TypeArguments="x:Int32" Name="counter">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Name="blNewVersao" />
+      <Variable x:TypeArguments="x:Boolean" Name="blBloqueioFinanceiro" />
+      <Variable x:TypeArguments="x:Boolean" Name="blUsuarioLogado" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="729,3394" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="1.1 Sequence - Login" sap:VirtualizedContainerService.HintSize="691,3144" sap2010:WorkflowViewState.IdRef="Sequence_35">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649,92" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;1.1 Iniciando: (Try) Sequence - Login Degustone&quot;]" />
+          <Assign sap:VirtualizedContainerService.HintSize="649,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Password]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[io_jsCredentialsValues("FISCAL_DEGUSTONE_CREDENTIALS").Password]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <While DisplayName="While Normaliza senha" sap:VirtualizedContainerService.HintSize="649,385" sap2010:WorkflowViewState.IdRef="While_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <While.Condition>[counter &lt; Password.ToString.Length]</While.Condition>
+            <Sequence sap:VirtualizedContainerService.HintSize="476,226" sap2010:WorkflowViewState.IdRef="Sequence_41">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <AddToCollection x:TypeArguments="x:String" Collection="[list_string]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[Password.ToString.SubString(counter,1)]" />
+              <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </While>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="1.2 Use Browser Chrome: Degust One" sap:VirtualizedContainerService.HintSize="649,2164" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" OpenMode="Always" ScopeGuid="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="615,1947" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="573,92" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;1.2Iniciando: (Try) (Use Browser): &quot; + io_jsAssets(&quot;WEBSITE_DEGUSTONE&quot;).ToString]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'editable text'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="573,25" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Text="[io_jsCredentialsValues(&quot;FISCAL_DEGUSTONE_CREDENTIALS&quot;).Username]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="93, 301, 285, 33" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Degust One' role='document' /&gt;&lt;ctrl idx='4' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Degust One' role='document' /&gt;&lt;ctrl automationid='' role='editable text' /&gt;" Guid="4f4b43e5-8543-45c3-b1f8-4f65c8f411ab" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAASEAAAAlCAYAAAAN+1+5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVHhe7d3LaipBGEXhvP9LORBRR6J4a0UciCgiCkZnaiW7ulrbS4cQ/u4aZH2woW8nw4UmHvw4n6+OMcZijQgxxqLuIUKHw6cbjxPXbrdds9lkjDGzqSvqizqT784tQrqhh9br9ff52QGAJXVFfVFn8iG6RUiF0gMAUCZ1Rr15iZDqxCsgAGVTZ9LePEVI79kAoArqDRECEA0RAhAVEQIQFRECEFVpEbpcLu54PPrpGADeKSVCu93OtVotV6vV/HSsawDwzDxCp9PJ1et1N5/Pb6+EdKxrugcAeeYRms1mrtvthrM7XZtOp+EMAFLmEer1em61WoWzO11rNBrhDABS5hEajUZ+z3St0+mEMwBImUdIv//Rv99sNuGK88e6pnsAkGceIVFs9Fcxvf3SdEyAALxjHqHFYuGjo5+RvTXTsa7pHgDkmUZoOBz62CRJEq7c6Zru6RkAyJhFaLvd+sj89KFE3dMzehYAxCxCk8nE9fv9cFZsMBi8faUE4H8yi5A+jLhcLsNZMf1eiM8LAciYRUhvtX7z/8P2+70fAIhZhADgL4gQgKiIEICoiBCAqIgQgKjeRogvPwRQhcIvP+RroAFUofBroPUF9aqTHuAVEQBr6or6os6oNy8RykKkQukhvWdjjDGrqSvqSz5A2kOEGGOs6hEhxljUESHGWMRd3RcIxJD31OZvggAAAABJRU5ErkJggg==" InformativeScreenshot="0baa6b3ce7878fcab5df7375baefea69.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Degust One - Google Chrome' /&gt;" SearchSteps="FuzzySelector, Image" SelectionStrategy="AA" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="93, 278, 81, 18" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Degust One' role='document' /&gt;&lt;ctrl idx='2' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Degust One' role='document' /&gt;&lt;ctrl automationid='' role='editable text' /&gt;" Guid="ae9b12bb-660e-44e7-814f-288612763041" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAWCAYAAACxOdCYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOFSURBVFhH7ZbBSyJRHMf7a+Z/GG9Fh7ZDdTFPwcIqQWuX6pAtmMGSQeglXYh2YWkPi3NYdGFpIFAI8hDOQQsWicCVPYiChCARSN99b+aN82YcbSQHNpjDB/HN7735vc+893tvqtd7gsdk8aS6gCfVBTypLuBJdYGJSq0V0oj4ZyAIAoTZACLHRTQe9ecKUrSdR3yDYFRCpT0ihpFS9BiN7kUcwjsJNb2tfYNMNIQ5kcb7MLcaR/b3fT++dKS171889NsojVyYtIeR/cvH8dCxYsiUjbEMWL7rOTS49qFS8XPKtn0YtdwmRJLAykcJ+WIRZ193sEImKG7J7IUsgQ/fcEmeU/K5JIJUgj+NStc+Rqfa4t93j3xUQFCqa/87pJ+f9JsN40Qm8YUcUuv04waQKmsS+7IWkih1jLHspe7gVH83GSux6jONZeBQqi7T+juSdgG7ZHDxoIgu116TQiSZJZxc0/8sgSPF6EfoFmLqZLUVZB8zQEtGhBNR+bJExgghc8fFdItI0A8WLaBN/vMrcPnTTT9Pe6lplNhzlY42P8EyP8dSKVSkjt3zAa6SarKJK0t761b92hU14SHClLTad+NXc3iMhba8A2FbVmX1enVk10iftZxRClQe0CiTlXZV56QmkflOP3SAfWiHUvW8+rvO0u6GVC2xwbpnxkbYYxP5A36VsRgrpqSbyK4LiMh6jbOfmBVD1g1OaKlg9diJ1MZ5HIvkHf1y08ehVF2k9XcUY0kdYAYR6ZZtKxZjranlprHt7iQEhRjy1sPNsVRScsppLJM+73/UyVlgJ3WQ6W0JVa4WaziUquN0laqMs/15YcotGqZEWcyI7a/WaVYntbZxtr++Ah9QSpIdIm4idWQnlTuoigqqDesBpTOm1LFgB9ViUjEVcm0Fjz6ozDwXU0fmrX6oGe3aQUXE/OFjyVgDBxW3rTtF7KvXL8pzNZV/FselelOhKEjQ/qaPPCmphJoUVq9UwcPc6CvVS6Ref8aimOQmxSCCErOkn5+ssJFXKrOs9nmM5EzbnUntFpNq/PIevTYWkNkLkFgfds/Nd9iJSaVbqiqnsTFP73QksWGX/xdIrRwvQTy0XmsYLQWn5PI/rUoadvm3ymribIvm60yqOsdcHEE2R3E+hH3ZenhNVKrbkFN7wffMYfh/8Iqkvh48qS7gSXUBT6oLeFJdwJM6cZ7wD992rJo9ND6CAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <ui:ForEach x:TypeArguments="sc:IEnumerable" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="573,25" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[list_string]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="sc:IEnumerable">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sc:IEnumerable" Name="item" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="559,450" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[item.ToString]" sap:VirtualizedContainerService.HintSize="497,338" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick x:Key="0" ActivateBefore="True" ClickType="Single" DisplayName="Click 0" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.94" BrowserURL="https://degustone.com.br/login" CvTextArgument="0" CvType="Text" DesignTimeRectangle="210, 409, 18, 26" DesignTimeScaleFactor="1" Guid="5e31f4f4-ddae-4860-894f-e7148c4ec8f5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABIAAAAaCAYAAAC6nQw6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIaSURBVEhL7ZRLTxNRGIb7W7xTKl4pIL+BBbFKBcFW2pnphYtWaqW4hOiCNYkbJZjaACrVVNKEwA5CWFSiJIBKFwUjAaIxTqMjyes5c+bSdqamTerOk0wyOcn35D1P3nMsgeb78DVFITQOgm+4B299BJ6LYXRfGID73B24zobQVXcLnaf7cd3Wi47aHlyrCcJ5KoCrJ3y4clyA4xgHi/+SDuLsFHSXQMK4eZ6CQgR0WwH1EUgv2q0UFEDbSb8GunyUgFiiIQKKyok4e1USRQyJbpyhifoLElEISyQQEJ+fKP9oxYnUoxUn0o9WgaPCRBU4ohAyYOPhsHrJ54PT1le5I3fLY7xe3sOPQ7D1U0Q28RThmp4iRxRk4oj1aARv1iWFAEi/lB+yvs5PoL3sHgVWsSuPSfjwaFh2NJral3cgfsLzsh29/KIMZfBK7RH/VoGLeDdslshrdORJKKDvm4hrPVrENtvF1hOTHh2JG3s0uZJjEzJI7dGSBtp+oSbSjyZM7RgdFYLUHumJGKjQUWINRkeDyQM2QUDPtLumgzLjRkdzHwnI0CNN9hZmCMRFHXFpRXYO7x8Ye5SXiIHkHgXT2JOHJGyMDaHNJmBklu3gMIukSY/8059NelT/EKmN32yQLEnUy/ltIVbirk2Z9IhWoDWG1MoBRO2K5LAzl0T0/3ukO/oXb7bco5KOKKjke1SVRKUcUdDfHHH4A2UEK78tK9t5AAAAAElFTkSuQmCC" InformativeScreenshot="2dbc757ff8987a08092a489f02018b2f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="1" ActivateBefore="True" ClickType="Single" DisplayName="Click 1" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://degustone.com.br/login" CvTextArgument="1" CvType="Text" DesignTimeRectangle="211, 452, 16, 25" DesignTimeScaleFactor="1" Guid="04328feb-6e21-47e9-9d7b-a25bcb3892c5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAZCAYAAAA4/K6pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAErSURBVDhP3ZS9TsJQGIZ7L2Jt+RNhVzg9hVKgUuEavAbCFYAJCyOLDsbBS2Aica8/i4MjMyZEHUxMXr7aUjtQciDYgZO84/ecJ+93cqTyQQt64gL6IUW2oStNcOUcPElJWeDpBrRMHVqWclyDljPBTqpgeUrBgKQHABucAPzIB6gWtCQNpyhpF1ADy5oeIOcCDAJUIJUTbQ8gLw0Iom5tQLdHGWQ8AxYyKOVdg912sJlBRAdLAwKoJs6UCoq/JQobWGByFaf2ADfjN8y+3uH0Vxus6KCJy84dJi8zfP/APx9wroQNruHM/bngEMA1EHsHIzy8TvF4f4vu8JlGfYC4QWgLvac/gHgHoS30YjBY/w7iMPiPDihRBhv/B4HB55Yd7MN/EIPBDjowsADdvQqFn6EwpwAAAABJRU5ErkJggg==" InformativeScreenshot="e9977537d7b4bc118584a86791b25903.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="2" ActivateBefore="True" ClickType="Single" DisplayName="Click 2" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://degustone.com.br/login" CvTextArgument="2" CvType="Text" DesignTimeRectangle="246, 453, 15, 22" DesignTimeScaleFactor="1" Guid="92a10fe3-3620-4054-aa65-371f54b6e634" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAYAAAAfD8YZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGTSURBVDhPxZNLSwIBFIX9L6n5zlqn5Tyk0fJRrdq0cdNj2apNtXUZ0QNpGWG0EHpAgYsWUYGCEASFLioyCWqhBk4MnO44o2TlOC6iCweGYb453HvuNfA9E+CN4+BNUXBmUm8EnCUMzhoCaxsDayc5RsG6gmBcAbDuABi3AGZgBAa/cVKBzbKi4C30AyvBNpI9BM5BsFOGSX1BBe6XYQHfnMm1nbNTcWZanJtww1mF/975R89hMGYBXjOPQZLH4seQXQY7Oofhi67h9LYCUYJSUgXFyz2sCARp9sxtI/umQlRiTX2gEnO7mNJyXjgoKV9KJaRn5Z5j2Lyqqu/ySGrlvJOpQnz/gHh91Jw2u3oDsU4/4Li7aQcRP3utoyjnsKE/5xB8M2kU1cE9nyzrzZlAfguZxvCezrGoL+cIGD6B7IsKlgtIzevcMNa0hMO8MiLUaEhzenfbFMP6RUUBUUU2Pg0vbZjHSptm4zFMZ9neOVFQY6GSRIqtVXdJrXvef1TJ3+s+1VXOna7qa8//fM96nQV8AvLDuSTF/7SRAAAAAElFTkSuQmCC" InformativeScreenshot="3d408eb3012065f4e66e73fc80e35d12.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="3" ActivateBefore="True" ClickType="Single" DisplayName="Click 3" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_14" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.95" BrowserURL="https://degustone.com.br/login" CvTextArgument="3" CvType="Text" DesignTimeRectangle="149, 413, 17, 18" DesignTimeScaleFactor="1" Guid="00caa2e2-4f91-4994-a353-ec5c0b977194" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhP5ZTdS1NxGMf7Z3qZWtmy95fLqHvT1tJpbe7NrTWXTmez7MbeoIuuXEQQZEQRCEEhIWVUFGSwoAiiJMuGQXLgiB0Hn57zFjuxQcfbnpvD+cH58Dnf833OqsSeIeK78sR2niK6I0dk+wBdW7OEtvRxbHMvR70n6dzUQ2BjmvYNKdrWH8dfn+RwXYJD6+K0ro3RsibCwdVhBHaa7t15AVbC+gWWJdjUK0AdlqGjUYedEFiKIw1JASbweboFqMOiAovosCED5jTTYU4zE+Y083lsMwuW3FtpNiiwHOFt/carBpsyBBrlgYYumutCNHvCtIiR32EWd5pVzyxDum+C4leVP1NW+Vl8wei++F+Z6bAamelmwdhzZpdsyDKaumzdyMy+5lwts2qZFZ4o5oPlEo/8ZmaDt+bMM+aYdJPZQPQGhfxNRlMX8NXrmZ2l8HjBZKmfuO0uM+trXvxARWqgfGNq+MwKe3b+HfOSl/bLgqHx5e4VsbXNVtizSw9/mLzyDA/2u8hMr0anN02HV67GBvTQHn5DyaCpvB1xkdn1a694Ov6SqatjBHQz2c220LQFWzRg/9yz+0WrV8pHxlqjsgU5Lk/Mm2d8Z/JADbOqmQ2/xyqCZKSh2QWWUZ/dc7+b2ZFpZkqLFkJGUfg8foec+938j/5nlWbSs6pmdmYRfgPHN3Gj2hTnfwAAAABJRU5ErkJggg==" InformativeScreenshot="fd6a074158410085141679d2879310af.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="4" ActivateBefore="True" ClickType="Single" DisplayName="Click 4" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://degustone.com.br/login" CvTextArgument="4" CvType="Text" DesignTimeRectangle="117, 451, 15, 30" DesignTimeScaleFactor="1" Guid="20a19243-c1d5-4147-8192-851ee1cd8a79" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAA8AAAAeCAYAAADzXER0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFnSURBVEhL3ZS9TsJQGIa9GGlLC6iwSaLxnDYWQQRH40TiBXgRbo7qYuKsgyHGhCCLo3FQBn8SFymXgGACLq/f6V+IWNu6GPmSd2jSp895e3o6Y8xuwkhUoUsV6DJF2YCeLIOr6+AaJVUCTxfBMmtg8yIFsKyJlewqXJgiVWEoLqxStDL0FMFpgjOUuSK4gBcETMmZHizMlCBzxjHbsGtmOc8seWZ6QPJX5r/rHM/8Tecxs1rAkqwjr3AsC3t0cwm7Z12M4IxVj9GZ1Zqwhi5JY9VDzRRhlms4ffacznjmkH2uYOvwyVnu2wB9G41kroDrx7jridsHuN+/hmWjkTrv4OjGcfVvT7CttcbgEDPbazvL7LVxwA3kEw10bBTonDMsatQzqHPjxb0zaF6bweaLhw+M3kVGfvwZ0vXj5U+dv37bMTpPnueribcdss/0AP88t9B14W6UfZ6G8/xf/mGUIPM0/bdNfAKRYoiab3E5RwAAAABJRU5ErkJggg==" InformativeScreenshot="52684a8efae78429f4dfd09ae9e26aed.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="5" ActivateBefore="True" ClickType="Single" DisplayName="Click 5" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.94" BrowserURL="https://degustone.com.br/login" CvTextArgument="5" CvType="Text" DesignTimeRectangle="341, 409, 17, 25" DesignTimeScaleFactor="1" Guid="15ee259f-1b23-47dd-b75f-00e4db82981c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAAZCAYAAADXPsWXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGzSURBVDhP1ZRLSwJRGIb9L9qMjVam7TLBuThmdrVWLYKgX9Cmy1IKcuGiTdgqqEUWWC2MLtCmFrWoIIIgEWxTQeBmEhKEt0/PZAoJpyv0wbs8D8955ztjCVgj0GxD0JoowiA0+wBUez9UieLog+rshdIShtJKaeuB4gpBbu+G7KZ4gpA7dFi0KmQQKkFU0YQ090GRCOCgOMuQHsitIQZxlSEE8OgMErANM4jwZkKg5m+ZkEUjkxZmIteY+N06/BWTn+/kcyYNO1GFELxWDd4mikARVXTaFQrp85osnjzj47lDmreTtcsiO1MqolioTRbbvCbpLGPc70x8dU8SuMgzSC4ZRFelEw0+iQ7xf50NXBcYxMib16IxssdYHqEO+Do5pPrMeWFdVOfpDDG6Et+eRKJYjCcwY+7J6NINGMrAeazepEEn/VDEXsgibWp1Y1O4LVUoyG3xmEwncZg6wsH6Cqbs5sZKe8gxBkHqTT7uZP6KpMtD6gtj8Ik6xlcz5nXyOJ3l6iSK3ex7mbXFFjP7mOTbE3rFgTg2Tx9hmD2g9IyHsxTmwr/0iv/B/+TPTX6wEx2vkehjXGeKYQUAAAAASUVORK5CYII=" InformativeScreenshot="3994e4bbf2712062c51aa4c3cf8bb033.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="6" ActivateBefore="True" ClickType="Single" DisplayName="Click 6" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.95" BrowserURL="https://degustone.com.br/login" CvTextArgument="6" CvType="Text" DesignTimeRectangle="306, 409, 15, 23" DesignTimeScaleFactor="1" Guid="62f1f25d-bc28-405d-8fc7-e575b5496987" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAAaCAYAAABRqrc5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVEhL1ZTPLwNBGIb9L3RbWr85qdL90VZRylEdhX/AiQMnhMTBpSSNI40mnCRID1ysAyWC0EjaVMJFE5bEJk1es7PTKhezhyZM8iWbzXxPnnn3m61Sqoeh1AxBsYUhC4OQ7aQcA5DrQpDq+iG5jOqD1NALsSEIsYlUcw/ElgC8rX542/yo8tUQiI1ABFL2MBQHgdQaEFLOEGQDUm9ASDX2QipBSLUGIBqQkonATAzITxMKISaNlTJpLzf5O5l8MyEWjiA8ggK3XUZX0YQ/kxC8yhw2DrN4fgFdmW2LJuJ4Apd5s5mugo70JjPhykSYxUGGNb/mkFyaRsTqnEjL19Ap4QlHE364bTI67D54nEH+TKLHGkXgMY3TBxNnHEe73MGki1jwzMnuvdlHF2nWP9gzWZq6hm6eTEqQ/AWiAWNOxhA9eTPfFdKIkyP9+nWKEE2NfU3swjnMQ2o4m+cw2bqmu4HbPYhsYqX5FIPkoU5xmEQSObodhUfsj/vQKYxiRWVhv98gxnd31pEqG7SvYHVkt2f45oTeHd8qkndv0Aus/zWPq/giRqzdHYu3+D/8T36YUEglM+E2qXwmfnwCudGFdLdNozAAAAAASUVORK5CYII=" InformativeScreenshot="22070ef84029afe9347b62b85ded8bc4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="7" ActivateBefore="True" ClickType="Single" DisplayName="Click 7" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_18" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.9" BrowserURL="https://degustone.com.br/login" CvTextArgument="7" CvType="Text" DesignTimeRectangle="243, 409, 17, 23" DesignTimeScaleFactor="1" Guid="af651489-89ef-4466-8412-cde697ad57c3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAAbCAYAAACTHcTmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG7SURBVEhL7dVJS0JRGAbg/kxlmg02z/2ANo1qg2mmXi3N0swmhySiH1DQpl0UtbWgTYtGgqKooCAaJKJFQbUQQoW3c881TBeVdWgRXbjbh/d8vOc7KdbqMVgqPTBXuNFV5oKpdBTGkmFwxUPQFzqhKxiANs+BDlk/NLk2qLP7oMqyok3agxaJBc1iMxSiLsjTTWhKM6Ix1QCK9lR5CepBd7mLwDHUUDRIUCc68x0E5lE71Dk2gvYS1IrWTAuBzVBmdFNYQDkBfUvKo/FJeTQhaQ6flEdjSZUZ75NS1EeT8nAs6QhBh2lSfgQ/SvqVmbZ/OFPu85kKx09M+nb8xKRxx//OTOOTJjlTB6mQEYosDnKpAY0SPRrEOtSLtKgTdaA2nYMy+Znu4hYffXdYS76nOwgEwwgl/i9RM3KDZTY99WL1VDBD+342PVW5jvFIyWccjjDpqRWL+yFKIrCHcSY9rVnHZUQwr+d8LHpqx8TKvSAGr7DE5O7L5nEQNZ82FtjcffvMBYRpPmDbwGSfTmMrQEXgbBM2FvtU4z6J1iiE8ykm+3QS/qMwJfFwitn/ffrDffpLb9Rfevc5vAK5CdV3PlGRpQAAAABJRU5ErkJggg==" InformativeScreenshot="6eb10f6949a27b9d193513e374419bc9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="8" ActivateBefore="True" ClickType="Single" DisplayName="Click 8" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.95" BrowserURL="https://degustone.com.br/login" CvTextArgument="8" CvType="Text" DesignTimeRectangle="112, 408, 19, 29" DesignTimeScaleFactor="1" Guid="1f46c392-b1df-4868-988b-4ddea9da4803" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAfCAYAAADjuz3zAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAItSURBVEhL7ZbdL1thHMf9MWSq8755Z+7c7EYoNu+UvuhpOy9rac22Jr2wbCFckRAJLrgQSoSEBNmFi610TJYMiaihF43GLnY0+XrOznPK6qimJXbhd3VyLj7PN5/n+zznROhz30P37B2Y7A5ost5AndEOVboZyrQ2KFJbUffUAPmT16hJakF1YjOqEhpRGf8K5bF6lD3W4WUMgxcSDUqi1Sh+pIIsSonCSAV8YG3OWwLuQENmO4FzYBMFGwnYgNrkFgLnwE0E3IiKOB5cKmUInAM3ELD6X7A2xz+xKWDiijghsfbmxEy2f2IBLJ5YUBEw8T04bkN9yq05Nvsc16cEcqy7C8cXKsJ2XJ1IfMYqIYuRo0BSh0KJCiXSIBIH7HGSBQNTe3B74BvW44JjsB8MAYfc485ZF8WR+XMG1kufweJHtyZ0x8u7lHO4jo+c4+fj2KBrna5OhO54wn7GUzzbGJXJoWpexM5v/tXxTE8YPc63Yc3J8qRLc/ptCZ3h9LhGt4RdYeO8F47ZX+sYyhNz3BqMYwNmN2lapwOf/jqexCZdyL04LJJ4LhjHNnynkONpq++uGF2lkvftsFxJvHKTYw48h5+UcWSz0JOnx7AAdm2g90rieTHH/j3uwxcnz8D+V1ilShTljcEhON9aEHFsCsaxEcYRJzkKdLzspQNyArs5zLuia2gLB27KI8O6D/HZ+oFAH+7j//Sbd13ikBz79/g6xxz44b/i/nqswDk3LfDM68KPwQAAAABJRU5ErkJggg==" InformativeScreenshot="82039f3a267d2da708841a1f9bcc0e2e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                            <uix:NClick x:Key="9" ActivateBefore="True" ClickType="Single" DisplayName="Click 9" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable Accuracy="0.95" BrowserURL="https://degustone.com.br/login" CvTextArgument="9" CvType="Text" DesignTimeRectangle="149, 450, 16, 23" DesignTimeScaleFactor="1" Guid="ff118296-93f2-4a06-859b-53948d7622ec" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAaCAYAAABVX2cEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVEhL7ZVJL0NRGIb9GWPN87wWCStT1Tx1rqqp1BTDRsLKLxASiUSUVMRGbJAmhpCWIhFyCTatG5WiyevcoVwVw+nGxlndnOR78p4n7zk3zJA/BF3uALQ5/VBn9UGVaYEyowct6WY0pXahMaUT9UkdqEtsR018G6rjjKiKNUAh00MerUNFlBZlEWqUhqsQps8bJKABaLI5mIXAenlQc1o3AXWhIZmDtaMuwURgRgJrJSADKmP0PKg8UiPClBxMmkyAccma00JMxsE+JuNgQckSuWQc7D2ZPFqajMD+xFntt85UXzsTjhmcLHDM4GSSY9I5+5iM0hnxlEAGZC0okSlRJtNBEZqzDphG7Ti/eUZgPTBOWDVqyGl71mjcBOMTKf4XPPvFb98Flgr0Xyf77MyM1WNxmD3FXDFxVrQEBytsuTdmaJxZ4XQLg1778lvPpjcfhU1mD2O/d2bDkZjiwb6IWr5nbVAsXAub98eYoenZmkuYg/cSq529KCmdxTYj7rEERtWz4UN4AtKDF+vik1H1zGzZwIHjFh43i6vdHazvewXYyRZtz6Q3wITqwhW4RNadbYquZ/zdTDGhKl4Fbf08ti/E8voY2ApDec/GnXBLvflZOCaGQ7ybk2fgT/b0CI/jANbukf/37Cdnf/ffVOIVmf9aze70m5AAAAAASUVORK5CYII=" InformativeScreenshot="cabdd2a8f4137a4f5ce7c16e66211dab.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Degust One' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Switch>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEach>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="573,107" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cd67b35a-48ff-48da-83af-41047439d59e" InformativeScreenshot="e04a2cc032dc6962dc5f0abc99027b24" Selector="&lt;webctrl tag='BUTTON' type='submit' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                  <ui:CommentOut DisplayName="Comment Out (Utilizar em uma nova release)" sap:VirtualizedContainerService.HintSize="573,25" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                    <ui:CommentOut.Body>
+                      <Sequence sap2010:Annotation.AnnotationText="Utilizar este elemento em uma nova versão&#xA;Ele informa que o sistema esta fora do ar, apos 30 segundos tentando acesso" DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,170" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="374,25" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'DIV'" sap:VirtualizedContainerService.HintSize="374,107" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
+                                <ui:UiElementExists.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87ab6c73-bcf1-4400-8347-701d695a2e7b" InformativeScreenshot="366ead8ea130daf2b8edb55472e8dfde" Selector="&lt;webctrl class='ant-notification-notice-message' tag='DIV' /&gt;" TimeoutMS="5000">
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:UiElementExists.Target>
+                              </ui:UiElementExists>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                        <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'DIV'" sap:VirtualizedContainerService.HintSize="374,25" sap2010:WorkflowViewState.IdRef="UiElementExists_8">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6015b3ba-3e81-48b3-9890-44eb3e9fbe4b" InformativeScreenshot="50bbcc9a6d4a2f98176ddf9c6bb15f8e" Selector="&lt;webctrl class='ant-notification-notice-description' tag='DIV' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:UiElementExists>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:UiElementExists DisplayName="Element Exists 'Usuario logado'" Exists="[blUsuarioLogado]" sap:VirtualizedContainerService.HintSize="573,107" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8003939a-27b1-4754-9683-d6a32fb846e7" InformativeScreenshot="77762bdda923e38813b93b754c5e875a" Selector="&lt;webctrl class='ant-notification-notice-description' tag='DIV' /&gt;" TimeoutMS="3000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[blUsuarioLogado]" sap:VirtualizedContainerService.HintSize="573,25" sap2010:WorkflowViewState.IdRef="Switch`1_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" x:Key="True" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ff4e5499-35da-4d11-bc98-7a168f21ddb0" InformativeScreenshot="12f79f590ed2e56c392adfe754866dea" Selector="&lt;webctrl aaname='Confirmar' tag='BUTTON' type='button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                  </Switch>
+                  <ui:UiElementExists DisplayName="Element exists - Release" Exists="[blNewVersao]" sap:VirtualizedContainerService.HintSize="573,107" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
+                    <ui:UiElementExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0d524440-8beb-4acb-bfac-d78f92773698" InformativeScreenshot="f4381969f3f06dea1f9a596693cae14a" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;span&amp;gt;i&amp;gt;svg&amp;gt;path' tag='path' /&gt;" TimeoutMS="3000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:UiElementExists.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:UiElementExists>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'MAIN'" sap:VirtualizedContainerService.HintSize="573,157" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5731a348-1647-4169-b7ba-375524be3e68" InformativeScreenshot="16e2db6a9d6d325447f13094f2e39c0f" Selector="&lt;webctrl tag='MAIN' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  Degust One'" sap:VirtualizedContainerService.HintSize="573,773" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="bd6dcc2133b71d21823c852cf75e3e1a" Selector="&lt;html app='chrome.exe' title='Degust One' /&gt;">
+                    <ui:BrowserScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,626" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:UiElementExists DisplayName="Element Exists 'STRONG'" Exists="[blBloqueioFinanceiro]" sap:VirtualizedContainerService.HintSize="497,107" sap2010:WorkflowViewState.IdRef="UiElementExists_11">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c04ed943-f73c-4094-9690-6f9cef8d4aae" InformativeScreenshot="720a393db465fdc402769cce42adce7b" Selector="&lt;webctrl visibleinnertext='Bloqueio Financeiro' idx='3' /&gt;" TimeoutMS="5000">
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[blBloqueioFinanceiro]" sap:VirtualizedContainerService.HintSize="497,399" sap2010:WorkflowViewState.IdRef="Switch`1_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'P'" sap:VirtualizedContainerService.HintSize="374,107" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click.CursorPosition>
+                                  <ui:CursorPosition Position="Center">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:Click.CursorPosition>
+                                <ui:Click.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c52df208-2eae-4cc7-a409-cc1a564ef5b8" InformativeScreenshot="546b9ce17826e961d6c87b619cea41c4" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;section&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;svg&amp;gt;path' tag='path' /&gt;">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:Click.Target>
+                              </ui:Click>
+                            </Sequence>
+                          </Switch>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:BrowserScope.Body>
+                  </ui:BrowserScope>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="573,92" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Info" Message="[&quot;1.2Finalizando: (Try) (Use Browser): &quot; + io_jsAssets(&quot;WEBSITE_DEGUSTONE&quot;).ToString]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG8SURBVDhPY6Ab+H32mMrHcLfLXzvzbaBCxIM/V89xfM6OPf8xwvHl3/vXhKDCxIE/F4/xfS5K3v7eQe3/77OHnKDChMHfy7PZfh9ZGfC5MObyexuV/9/ndDVCpfCDf4+3Gv05HLv51wrzm59zNf+/t1P//6U86eD/n99ZoErwg79Pd+v93qL/8ecikf+fEjX+fwy2f/37xgUlqDRx4P+nywo/V/iefe+m9P/H4mnNUGHiwb/3b7g+ZQSf/+Cp8f/79JiL/z/ek4JKEQe+NuWufW+r/P9jpP7/L3WK/3+tDbr8/8kBBag0fvBj8ZS693ZK/9+76wHDQOf/11bN/z+myf//vcHx/v/ba4ygyrCDX4d3+Lx31fz/wd3w/wdf3f+f0lT/f21RAxqg9P/XYlmgIVbv/z3e5wZVjgr+Prmn9DHY6vV7B6ABXkb/P8YZ/vzW5XXz+3Tbkz+Xu53+s9X1/q916v9/rVH7//fu6iioNgT4Up68952Zwv9PGRGXv/UVZf2Yk6/09/ZBeNz/u7ua6+/FNqPfJzMm/j4ctR8qjABfShKXf+tvLPl1aDMbVAgn+PfmNBOUSSlgYAAAjhnkbmen7KEAAAAASUVORK5CYII=" InformativeScreenshot="314dcb470357a1bdfde4fe3007f8f556.jpg" Selector="&lt;html app='chrome.exe' title='Degust One' /&gt;" Title="Degust One" Url="[io_jsAssets(&quot;WEBSITE_DEGUSTONE&quot;).ToString]" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'IMG'" sap:VirtualizedContainerService.HintSize="649,25" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8b911322-bd66-4931-b54c-0fb3b93bf10a" InformativeScreenshot="85d35e77e2e0e9017ff762b50f7a0081" Selector="&lt;html app='chrome.exe' title='Degust One' /&gt;&lt;webctrl class='image-avatar' tag='IMG' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:UiElementExists.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:UiElementExists>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="649,25" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="615,1163" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window - Login Degustone" sap:VirtualizedContainerService.HintSize="573,1075" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="07678a2c3dbaa7467f069f2101ce7128" Selector="&lt;wnd app='segp0007.exe' cls='ThunderRT6FormDC' title='SEGBR - Validação de Acesso' /&gt;">
+                  <ui:WindowScope.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="1.2 Sequence (Attach Windows) - Login SEGBR" sap:VirtualizedContainerService.HintSize="539,928" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Load Options" sap:VirtualizedContainerService.HintSize="497,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="96f39b24-6e77-4828-b309-36a4b70cbc6c" InformativeScreenshot="db3c003e666360aff204c559bd8ad3c1" Selector="&lt;wnd cls='ThunderRT6ComboBox' idx='3' /&gt;" WaitForReady="COMPLETE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,92" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info" Message="[&quot;1.2Iniciando: (Try) (Attach) (Switch) - Selecionada Opção: &quot; + stWEBSITE_DEGUSTONE]" />
+                        <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[stWEBSITE_DEGUSTONE]" sap:VirtualizedContainerService.HintSize="497,160" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence x:Key="AMBIENTE DE QUALIDADE" DisplayName="1.2 Sequence (Switch) - HOMOL" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Select Option" sap:VirtualizedContainerService.HintSize="354,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c905b86-6b59-4df1-af01-8854b5cee455" InformativeScreenshot="de250194eb4346fa8b1b6077678c919a" Selector="&lt;wnd app='segp0007.exe' cls='ComboLBox' idx='*' /&gt;&lt;ctrl name='AMBIENTE DE QUALIDADE' role='list item' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                          <Sequence x:Key="AMBIENTE DE PRODUÇÃO" DisplayName="1.2 Sequence (Switch) - PRD" sap:VirtualizedContainerService.HintSize="416,215" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Select Option" sap:VirtualizedContainerService.HintSize="354,107" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition Position="Center">
+                                  <ui:CursorPosition.OffsetX>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetX>
+                                  <ui:CursorPosition.OffsetY>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:CursorPosition.OffsetY>
+                                </ui:CursorPosition>
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c905b86-6b59-4df1-af01-8854b5cee455" InformativeScreenshot="71f61671851b0bdc6abd3502c0d42e27" Selector="&lt;wnd app='segp0007.exe' cls='ComboLBox' idx='*' /&gt;&lt;ctrl name='AMBIENTE DE PRODUÇÃO' role='list item' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                        </Switch>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,107" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[&quot;1.2 Finalizando: (Try) (Attach) (Switch) - Selecionada Opção: &quot; + stWEBSITE_DEGUSTONE]" />
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Validate" sap:VirtualizedContainerService.HintSize="497,107" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="330bd6cc-1731-4db7-ad79-12831283c0b0" InformativeScreenshot="100a53591f9d1a5c240aa249549819b2" Selector="&lt;wnd app='segp0007.exe' cls='ThunderRT6FormDC' title='SEGBR - Validação de Acesso' /&gt;&lt;wnd aaname='Validar' cls='ThunderRT6CommandButton' title='*Validar' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists - Sistema logado" sap:VirtualizedContainerService.HintSize="497,107" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fbd2701-a53a-48d3-b57f-2439b3b4be4b" InformativeScreenshot="2ede80e2112caa9e5a857cd8536ed140" Selector="&lt;wnd app='segp0007.exe' cls='ThunderRT6FormDC' title='Portal de Negócios da Aliança do Brasil' /&gt;&lt;ctrl name='Arquivo' role='menu item' text='Arquivo' /&gt;" TimeoutMS="80000" WaitForReady="COMPLETE" />
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:WindowScope.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:WindowScope>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649,92" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;1.1 Finalizando: (Try) Sequence - Login Degustone&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="695,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="1.1 Sequence - Erro de Sistema Login Degustone" sap:VirtualizedContainerService.HintSize="416,58" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,107" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;1.1 Iniciando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Object" xml:space="preserve">[If ( io_jsExecutionReport("mensagem").ToString &lt;&gt; "", 
+		"Erro: Falha de Sistema no 1.1 Login Degustone" + " - " + io_jsExecutionReport("mensagem").ToString + " - " + exception.Message.ToString,
+		"Erro: Falha de Sistema no 1.1 Login Degustone" + " - " + exception.Message.ToString
+)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("exceptionHandling")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Object">["SystemException"]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,107" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;1.1 Finalizando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+              <Throw Exception="[New Exception(io_jsExecutionReport(&quot;mensagem&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="431,25" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="695,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Object">["Exceção de negocio: " + io_jsContent("Nome_Loja").ToString + " tem pendencia com o Degustone"]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

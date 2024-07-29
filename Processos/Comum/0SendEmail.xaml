@@ -1,0 +1,1782 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_0SendEmail" this:_0SendEmail.in_stSubject="Assunto email" this:_0SendEmail.in_stEmailContentBody="Corpo email" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uou="clr-namespace:UiPath.OrchestratorClient.Utilities;assembly=UiPath.System.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_stAttachedAbsolutePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_stSubject" Type="InArgument(x:String)" />
+    <x:Property Name="in_stEmailContentBody" Type="InArgument(x:String)" />
+    <x:Property Name="io_jsExecutionReport" Type="InOutArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_jsConfig" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="io_jsAssets" Type="InOutArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="io_jsCredentialsValues" Type="InOutArgument(scg:Dictionary(x:String, uou:Credential))" />
+    <x:Property Name="in_trTransactionItem" Type="InArgument(ui:QueueItem)" />
+  </x:Members>
+  <this:_0SendEmail.in_stAttachedAbsolutePath>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:_0SendEmail.in_stAttachedAbsolutePath>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1313,607</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_0SendEmailApi_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="68">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.OrchestratorClient.Utilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="46">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="0SendEmail" sap:VirtualizedContainerService.HintSize="416,307" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="stURLRequestToken" />
+      <Variable x:TypeArguments="x:String" Name="stURLRequestEmail" />
+      <Variable x:TypeArguments="x:String" Name="stSender" />
+      <Variable x:TypeArguments="x:String" Name="stRecipient" />
+      <Variable x:TypeArguments="x:String" Name="stSystem" />
+      <Variable x:TypeArguments="x:String" Name="stAttachedAbsolutePath" />
+      <Variable x:TypeArguments="x:String" Name="stSubject" />
+      <Variable x:TypeArguments="x:String" Name="stUserName" />
+      <Variable x:TypeArguments="x:String" Name="stEmailContentBody" />
+      <Variable x:TypeArguments="x:Int32" Name="nuTrySend" />
+      <Variable x:TypeArguments="x:Int32" Name="nuTryToken" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="blHasAttachment" />
+      <Variable x:TypeArguments="x:String" Name="stPassword" />
+      <Variable x:TypeArguments="x:Int32" Name="nuHttpStatusCodeToken" />
+      <Variable x:TypeArguments="x:String" Name="stHttpResponseToken" />
+      <Variable x:TypeArguments="x:String" Name="stToken" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsHttpResponseToken" />
+      <Variable x:TypeArguments="x:String" Name="stHttpResponseEmail" />
+      <Variable x:TypeArguments="x:Int32" Name="nuHttpStatusCodeEmail" />
+      <Variable x:TypeArguments="x:String" Name="stAttacheIsValidPath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,133" sap2010:WorkflowViewState.IdRef="Sequence_76">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence DisplayName="Sequence - Loading inputs" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="541,348" sap2010:WorkflowViewState.IdRef="Sequence_74">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,240" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stURLRequestToken]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsAssets("EMAIL_TOKENURL").ToString]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stURLRequestEmail]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsAssets("EMAIL_SENDURL").ToString]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stSender]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsAssets("EMAIL_SENDER").ToString]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stSystem]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsAssets("EMAIL_SYSTEM").ToString]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stRecipient]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsAssets("EMAIL_RECIPIENT").ToString]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="541,255" sap2010:WorkflowViewState.IdRef="Sequence_75">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                        <ui:MultipleAssign.AssignOperations>
+                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stUserName]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsCredentialsValues("FISCAL_DEGUSTONE_CREDENTIALS").Username]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                              <ui:AssignOperation.To>
+                                <OutArgument x:TypeArguments="x:String">[stPassword]</OutArgument>
+                              </ui:AssignOperation.To>
+                              <ui:AssignOperation.Value>
+                                <InArgument x:TypeArguments="x:String">[io_jsCredentialsValues("FISCAL_DEGUSTONE_CREDENTIALS").Password]</InArgument>
+                              </ui:AssignOperation.Value>
+                            </ui:AssignOperation>
+                          </scg:List>
+                        </ui:MultipleAssign.AssignOperations>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:MultipleAssign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[stAttachedAbsolutePath]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[If ( 
+		String.IsNullOrEmpty( io_jsExecutionReport("exceptionHandling").ToString ) = False,
+		(io_jsConfig("TEMP_RPA").ToString+"\exception.png").Trim, 
+		(io_jsConfig("TEMP_RPA").ToString+"\EXECUTION_REPORT.xlsx").Trim 
+)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[stSubject]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[in_stSubject]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[in_stEmailContentBody]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:MultipleAssign>
+                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[String.IsNullOrEmpty( io_jsExecutionReport(&quot;exceptionHandling&quot;).ToString )]" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="541,403" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;!DOCTYPE HTML PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional //EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd""&gt;&lt;html xmlns=""http://www.w3.org/1999/xhtml"" xmlns:v=""urn:schemas-microsoft-com:vml"" xmlns:o=""urn:schemas-microsoft-com:office:office""&gt;&lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;  &lt;o:OfficeDocumentSettings&gt;    &lt;o:AllowPNG/&gt;    &lt;o:PixelsPerInch&gt;96&lt;/o:PixelsPerInch&gt;  &lt;/o:OfficeDocumentSettings&gt;&lt;/xml&gt;&lt;![endif]--&gt;  &lt;meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""&gt;  &lt;meta name=""viewport"" content=""width=device-width, initial-scale=1.0""&gt;  &lt;meta name=""x-apple-disable-message-reformatting""&gt;  &lt;!--[if !mso]&gt;&lt;!--&gt;&lt;meta http-equiv=""X-UA-Compatible"" content=""IE=edge""&gt;&lt;!--&lt;![endif]--&gt;  &lt;title&gt;&lt;/title&gt;      &lt;style type=""text/css""&gt;      @media only screen and (min-width: 620px) {  .u-row {    width: 600px !important;  }  .u-row .u-col {    vertical-align: top;  }  .u-row .u-col-100 {    width: 600px !important;  }}@media (max-width: 620px) {  .u-row-container {    max-width: 100% !important;    padding-left: 0px !important;    padding-right: 0px !important;  }  .u-row .u-col {    min-width: 320px !important;    max-width: 100% !important;    display: block !important;  }  .u-row {    width: calc(100% - 40px) !important;  }  .u-col {    width: 100% !important;  }  .u-col &gt; div {    margin: 0 auto;  }}body {  margin: 0;  padding: 0;}table,tr,td {  vertical-align: top;  border-collapse: collapse;}p {  margin: 0;}.ie-container table,.mso-container table {  table-layout: fixed;}* {  line-height: inherit;}a[x-apple-data-detectors='true'] {  color: inherit !important;  text-decoration: none !important;}table, td { color: #000000; } @media (max-width: 480px) { #u_content_heading_2 .v-container-padding-padding { padding: 6px 10px 10px !important; } #u_content_heading_2 .v-line-height { line-height: 110% !important; } #u_content_text_2 .v-container-padding-padding { padding: 40px 20px 10px !important; } #u_content_text_1 .v-container-padding-padding { padding: 10px 20px !important; } #u_content_text_1 .v-text-align { text-align: justify !important; } #u_column_3 .v-col-padding { padding: 50px 0px !important; } #u_content_divider_1 .v-container-padding-padding { padding: 20px 10px !important; } #u_content_text_5 .v-container-padding-padding { padding: 10px 10px 0px !important; } #u_content_text_5 .v-text-align { text-align: center !important; } #u_content_text_5 .v-line-height { line-height: 160% !important; } }    &lt;/style&gt;    &lt;!--[if !mso]&gt;&lt;!--&gt;&lt;link href=""https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap"" rel=""stylesheet"" type=""text/css""&gt;&lt;link href=""https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap"" rel=""stylesheet"" type=""text/css""&gt;&lt;!--&lt;![endif]--&gt;&lt;/head&gt;&lt;body class=""clean-body u_body"" style=""margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000""&gt;  &lt;!--[if IE]&gt;&lt;div class=""ie-container""&gt;&lt;![endif]--&gt;  &lt;!--[if mso]&gt;&lt;div class=""mso-container""&gt;&lt;![endif]--&gt;  &lt;table style=""border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%"" cellpadding=""0"" cellspacing=""0""&gt;  &lt;tbody&gt;  &lt;tr style=""vertical-align: top""&gt;    &lt;td style=""word-break: break-word;border-collapse: collapse !important;vertical-align: top""&gt;    &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td align=""center"" style=""background-color: #e7e7e7;""&gt;&lt;![endif]--&gt;    &lt;div class=""u-row-container"" style=""padding: 0px;background-color: transparent""&gt;  &lt;div class=""u-row"" style=""Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;""&gt;    &lt;div style=""border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;""&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td style=""padding: 0px;background-color: transparent;"" align=""center""&gt;&lt;table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:600px;""&gt;&lt;tr style=""background-color: transparent;""&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;td align=""center"" width=""600"" class=""v-col-padding"" style=""background-color: #ffffff;width: 600px;padding: 0px 0px 50px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"" valign=""top""&gt;&lt;![endif]--&gt;&lt;div class=""u-col u-col-100"" style=""max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;""&gt;  &lt;div style=""background-color: #ffffff;height: 100%;width: 100% !important;""&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;div class=""v-col-padding"" style=""height: 100%; padding: 0px 0px 50px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;""&gt;&lt;!--&lt;![endif]--&gt;  &lt;table style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:25px 10px 0px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;h1 class=""v-text-align v-line-height"" style=""margin: 0px; color: #22e62c; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 22px;""&gt;    &lt;div&gt;Logs de Execução&lt;/div&gt;  &lt;/h1&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_heading_2"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:0px 10px 10px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;h1 class=""v-text-align v-line-height"" style=""margin: 0px; color: #22e62c; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 40px;""&gt;    AUTOMATION_NAME  &lt;/h1&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_2"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px 40px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 140%; text-align: left; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 140%;""&gt;&lt;strong&gt;&lt;span style=""font-size: 18px; line-height: 25.2px;""&gt;Caro(a) prezado(a)!&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_1"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:10px 40px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 160%; text-align: justify; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;O robô encerrou com sucesso a execução do processo&lt;/p&gt;&lt;/br&gt;&lt;p&gt;Seguea relação dos resultados:&lt;/p&gt;&lt;/div&gt;&lt;br&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;Automação: AUTOMATION_NAME&lt;br /&gt;Data e Hora: AUTOMATION_DATETIME&lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;&lt;strong&gt;RPA Automation,&lt;/strong&gt;&lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;/div&gt;&lt;!--&lt;![endif]--&gt;  &lt;/div&gt;&lt;/div&gt;&lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/div&gt;  &lt;/div&gt;&lt;/div&gt;&lt;div Class=""u-row-container"" style=""padding: 0px;background-color: transparent""&gt;  &lt;div Class=""u-row"" style=""Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;""&gt;    &lt;div style=""border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;""&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td style=""padding: 0px;background-color: transparent;"" align=""center""&gt;&lt;table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:600px;""&gt;&lt;tr style=""background-color: transparent;""&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;td align=""center"" width=""600"" Class=""v-col-padding"" style=""background-color: #f0f0f0;width: 600px;padding: 50px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"" valign=""top""&gt;&lt;![endif]--&gt;&lt;div id=""u_column_3"" Class=""u-col u-col-100"" style=""max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;""&gt;  &lt;div style=""background-color: #f0f0f0;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;""&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;div Class=""v-col-padding"" style=""height: 100%; padding: 50px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;""&gt;&lt;!--&lt;![endif]--&gt;  &lt;table id=""u_content_divider_1"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;table height=""0px"" align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" width=""57%"" style=""border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%""&gt;    &lt;tbody&gt;      &lt;tr style=""vertical-align: top""&gt;        &lt;td style=""word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%""&gt;          &lt;span&gt;&amp;#160;&lt;/span&gt;        &lt;/td&gt;      &lt;/tr&gt;    &lt;/tbody&gt;  &lt;/table&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_5"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:10px 70px 0px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 140%; text-align: center; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 140%;""&gt;You have received this email by mistake, please delete this message. This is an automatic Message.&lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;/div&gt;&lt;!--&lt;![endif]--&gt;  &lt;/div&gt;&lt;/div&gt;&lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/div&gt;  &lt;/div&gt;&lt;/div&gt;    &lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/td&gt;  &lt;/tr&gt;  &lt;/tbody&gt;  &lt;/table&gt;  &lt;!--[if mso]&gt;&lt;/div&gt;&lt;![endif]--&gt;  &lt;!--[if IE]&gt;&lt;/div&gt;&lt;![endif]--&gt;&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[stEmailContentBody.Replace("AUTOMATION_NAME", io_jsConfig("AUTOMATION_NAME").ToString )]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[stEmailContentBody.Replace("AUTOMATION_DATETIME", Now.ToString("dd.MM.yyyy HH.mm.ss"))]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                  </Sequence>
+                  <Sequence x:Key="False" sap:VirtualizedContainerService.HintSize="493,22" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,100" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;!DOCTYPE HTML PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional //EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd""&gt;&lt;html xmlns=""http://www.w3.org/1999/xhtml"" xmlns:v=""urn:schemas-microsoft-com:vml"" xmlns:o=""urn:schemas-microsoft-com:office:office""&gt;&lt;head&gt;&lt;!--[if gte mso 9]&gt;&lt;xml&gt;  &lt;o:OfficeDocumentSettings&gt;    &lt;o:AllowPNG/&gt;    &lt;o:PixelsPerInch&gt;96&lt;/o:PixelsPerInch&gt;  &lt;/o:OfficeDocumentSettings&gt;&lt;/xml&gt;&lt;![endif]--&gt;  &lt;meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""&gt;  &lt;meta name=""viewport"" content=""width=device-width, initial-scale=1.0""&gt;  &lt;meta name=""x-apple-disable-message-reformatting""&gt;  &lt;!--[if !mso]&gt;&lt;!--&gt;&lt;meta http-equiv=""X-UA-Compatible"" content=""IE=edge""&gt;&lt;!--&lt;![endif]--&gt;  &lt;title&gt;&lt;/title&gt;      &lt;style type=""text/css""&gt;      @media only screen and (min-width: 620px) {  .u-row {    width: 600px !important;  }  .u-row .u-col {    vertical-align: top;  }  .u-row .u-col-100 {    width: 600px !important;  }}@media (max-width: 620px) {  .u-row-container {    max-width: 100% !important;    padding-left: 0px !important;    padding-right: 0px !important;  }  .u-row .u-col {    min-width: 320px !important;    max-width: 100% !important;    display: block !important;  }  .u-row {    width: calc(100% - 40px) !important;  }  .u-col {    width: 100% !important;  }  .u-col &gt; div {    margin: 0 auto;  }}body {  margin: 0;  padding: 0;}table,tr,td {  vertical-align: top;  border-collapse: collapse;}p {  margin: 0;}.ie-container table,.mso-container table {  table-layout: fixed;}* {  line-height: inherit;}a[x-apple-data-detectors='true'] {  color: inherit !important;  text-decoration: none !important;}table, td { color: #000000; } @media (max-width: 480px) { #u_content_heading_2 .v-container-padding-padding { padding: 6px 10px 10px !important; } #u_content_heading_2 .v-line-height { line-height: 110% !important; } #u_content_text_2 .v-container-padding-padding { padding: 40px 20px 10px !important; } #u_content_text_1 .v-container-padding-padding { padding: 10px 20px !important; } #u_content_text_1 .v-text-align { text-align: justify !important; } #u_column_3 .v-col-padding { padding: 50px 0px !important; } #u_content_divider_1 .v-container-padding-padding { padding: 20px 10px !important; } #u_content_text_5 .v-container-padding-padding { padding: 10px 10px 0px !important; } #u_content_text_5 .v-text-align { text-align: center !important; } #u_content_text_5 .v-line-height { line-height: 160% !important; } }    &lt;/style&gt;    &lt;!--[if !mso]&gt;&lt;!--&gt;&lt;link href=""https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap"" rel=""stylesheet"" type=""text/css""&gt;&lt;link href=""https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap"" rel=""stylesheet"" type=""text/css""&gt;&lt;!--&lt;![endif]--&gt;&lt;/head&gt;&lt;body class=""clean-body u_body"" style=""margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #e7e7e7;color: #000000""&gt;  &lt;!--[if IE]&gt;&lt;div class=""ie-container""&gt;&lt;![endif]--&gt;  &lt;!--[if mso]&gt;&lt;div class=""mso-container""&gt;&lt;![endif]--&gt;  &lt;table style=""border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #e7e7e7;width:100%"" cellpadding=""0"" cellspacing=""0""&gt;  &lt;tbody&gt;  &lt;tr style=""vertical-align: top""&gt;    &lt;td style=""word-break: break-word;border-collapse: collapse !important;vertical-align: top""&gt;    &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td align=""center"" style=""background-color: #e7e7e7;""&gt;&lt;![endif]--&gt;    &lt;div class=""u-row-container"" style=""padding: 0px;background-color: transparent""&gt;  &lt;div class=""u-row"" style=""Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;""&gt;    &lt;div style=""border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;""&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td style=""padding: 0px;background-color: transparent;"" align=""center""&gt;&lt;table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:600px;""&gt;&lt;tr style=""background-color: transparent;""&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;td align=""center"" width=""600"" class=""v-col-padding"" style=""background-color: #ffffff;width: 600px;padding: 0px 0px 50px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;"" valign=""top""&gt;&lt;![endif]--&gt;&lt;div class=""u-col u-col-100"" style=""max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;""&gt;  &lt;div style=""background-color: #ffffff;height: 100%;width: 100% !important;""&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;div class=""v-col-padding"" style=""height: 100%; padding: 0px 0px 50px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;""&gt;&lt;!--&lt;![endif]--&gt;  &lt;table style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:25px 10px 0px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;h1 class=""v-text-align v-line-height"" style=""margin: 0px; color: #ee4343; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 22px;""&gt;    &lt;div&gt;Logs de Execução&lt;/div&gt;  &lt;/h1&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_heading_2"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:0px 10px 10px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;h1 class=""v-text-align v-line-height"" style=""margin: 0px; color: #ee4343; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 40px;""&gt;    AUTOMATION_NAME  &lt;/h1&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_2"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px 40px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 140%; text-align: left; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 140%;""&gt;&lt;strong&gt;&lt;span style=""font-size: 18px; line-height: 25.2px;""&gt;Caro(a) prezado(a)!&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_1"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:10px 40px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 160%; text-align: justify; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;O robô encontrou uma exceção de negócio ao processar o item "+"TRANSACTION_ITEM"+"&lt;/p&gt;&lt;/br&gt;&lt;p&gt;Abaixo mensagem capturada pelo robô&lt;/p&gt;&lt;p&gt;"+" ERRO_MESSAGE "+"&lt;/p&gt;&lt;/br&gt;&lt;p&gt;O item deve ser tratado manualmente&lt;/p&gt;&lt;/br&gt;&lt;p&gt;Screenshot de erro capturado em anexo&lt;/p&gt;&lt;/div&gt;&lt;br&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;Automação: AUTOMATION_NAME&lt;br /&gt;Data e Hora: AUTOMATION_DATETIME&lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt;&lt;strong&gt;RPA Automation,&lt;/strong&gt;&lt;/p&gt;&lt;p style=""font-size: 14px; line-height: 160%;""&gt; &lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;/div&gt;&lt;!--&lt;![endif]--&gt;  &lt;/div&gt;&lt;/div&gt;&lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/div&gt;  &lt;/div&gt;&lt;/div&gt;&lt;div class=""u-row-container"" style=""padding: 0px;background-color: transparent""&gt;  &lt;div class=""u-row"" style=""Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;""&gt;    &lt;div style=""border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;""&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;table width=""100%"" cellpadding=""0"" cellspacing=""0"" border=""0""&gt;&lt;tr&gt;&lt;td style=""padding: 0px;background-color: transparent;"" align=""center""&gt;&lt;table cellpadding=""0"" cellspacing=""0"" border=""0"" style=""width:600px;""&gt;&lt;tr style=""background-color: transparent;""&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;td align=""center"" width=""600"" class=""v-col-padding"" style=""background-color: #f0f0f0;width: 600px;padding: 50px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"" valign=""top""&gt;&lt;![endif]--&gt;&lt;div id=""u_column_3"" class=""u-col u-col-100"" style=""max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;""&gt;  &lt;div style=""background-color: #f0f0f0;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;""&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;div class=""v-col-padding"" style=""height: 100%; padding: 50px 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;""&gt;&lt;!--&lt;![endif]--&gt;  &lt;table id=""u_content_divider_1"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:20px 10px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;table height=""0px"" align=""center"" border=""0"" cellpadding=""0"" cellspacing=""0"" width=""57%"" style=""border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%""&gt;    &lt;tbody&gt;      &lt;tr style=""vertical-align: top""&gt;        &lt;td style=""word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%""&gt;          &lt;span&gt;&amp;#160;&lt;/span&gt;        &lt;/td&gt;      &lt;/tr&gt;    &lt;/tbody&gt;  &lt;/table&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;&lt;table id=""u_content_text_5"" style=""font-family:'Montserrat',sans-serif;"" role=""presentation"" cellpadding=""0"" cellspacing=""0"" width=""100%"" border=""0""&gt;  &lt;tbody&gt;    &lt;tr&gt;      &lt;td class=""v-container-padding-padding"" style=""overflow-wrap:break-word;word-break:break-word;padding:10px 70px 0px;font-family:'Montserrat',sans-serif;"" align=""left""&gt;          &lt;div class=""v-text-align v-line-height"" style=""line-height: 140%; text-align: center; word-wrap: break-word;""&gt;    &lt;p style=""font-size: 14px; line-height: 140%;""&gt;You have received this email by mistake, please delete this message. This is an automatic Message.&lt;/p&gt;  &lt;/div&gt;      &lt;/td&gt;    &lt;/tr&gt;  &lt;/tbody&gt;&lt;/table&gt;  &lt;!--[if (!mso)&amp;(!IE)]&gt;&lt;!--&gt;&lt;/div&gt;&lt;!--&lt;![endif]--&gt;  &lt;/div&gt;&lt;/div&gt;&lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;![endif]--&gt;      &lt;!--[if (mso)|(IE)]&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/div&gt;  &lt;/div&gt;&lt;/div&gt;    &lt;!--[if (mso)|(IE)]&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;![endif]--&gt;    &lt;/td&gt;  &lt;/tr&gt;  &lt;/tbody&gt;  &lt;/table&gt;  &lt;!--[if mso]&gt;&lt;/div&gt;&lt;![endif]--&gt;  &lt;!--[if IE]&gt;&lt;/div&gt;&lt;![endif]--&gt;&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[stEmailContentBody.Replace("AUTOMATION_NAME", io_jsConfig("AUTOMATION_NAME").ToString )]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[stEmailContentBody.Replace("AUTOMATION_DATETIME", Now.ToString("dd.MM.yyyy HH.mm.ss"))]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[stEmailContentBody.Replace("ERRO_MESSAGE",  io_jsExecutionReport("mensagem").ToString )]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[stEmailContentBody]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[If ( io_jsConfig("COLETA").ToString.ToLower="false",
+	If ( io_jsExecutionReport("exceptionHandling").ToString.Contains( "SystemException" ), 
+			stEmailContentBody.Replace("EXCEPTION","O robô encontrou um erro de sistema ao realizar uma execução"),
+			stEmailContentBody.Replace("EXCEPTION","O robô encontrou uma exceção de negócio ao ao realizar uma execução") 
+		),
+	If ( io_jsExecutionReport("exceptionHandling").ToString.Contains( "SystemException" ), 
+			stEmailContentBody.Replace("EXCEPTION","O robô encontrou um erro de sistema ao processar o item "+ If( IsNothing( in_trTransactionItem.SpecificContent )=False, in_trTransactionItem.Reference.ToString, "" ) ),
+			stEmailContentBody.Replace("EXCEPTION","O robô encontrou uma exceção de negócio ao processar o item "+ If( IsNothing( in_trTransactionItem.SpecificContent )=False, in_trTransactionItem.Reference.ToString, "" ) )
+		)
+	)]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                  </Sequence>
+                </Switch>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="500,1559" sap2010:WorkflowViewState.IdRef="Sequence_58">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1451" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence DisplayName="Sequence - Check input content" sap:VirtualizedContainerService.HintSize="376,1222" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Checking input content...&quot;]" />
+                <If Condition="[String.IsNullOrEmpty(stURLRequestToken) or String.IsNullOrWhiteSpace(stURLRequestToken) or stURLRequestToken is Nothing]" DisplayName="If - stURLRequestToken" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stURLRequestToken NOK" sap:VirtualizedContainerService.HintSize="695,541" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="653,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;stURLRequestToken NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="653,316" sap2010:WorkflowViewState.IdRef="If_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stURLRequestToken it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError + Environment.NewLine +
+"in_stURLRequestToken it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stURLRequestToken OK" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;stURLRequestToken filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(stURLRequestEmail) or String.IsNullOrWhiteSpace(stURLRequestEmail) or stURLRequestEmail is Nothing]" DisplayName="If - stURLRequestEmail" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stURLRequestEmail NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Error" Message="[&quot;stURLRequestEmail NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stURLRequestEmail it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_5">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError + Environment.NewLine +
+"in_stURLRequestEmail it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stURLRequestEmail OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;stURLRequestEmail filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(stSender) or String.IsNullOrWhiteSpace(stSender) or stSender is Nothing]" DisplayName="If - stSender" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stSender NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Error" Message="[&quot;stSender NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_6">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stSender it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_7">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError + Environment.NewLine +
+"in_stSender it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stSender OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;stSender filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(stRecipient) or String.IsNullOrWhiteSpace(stRecipient) or stRecipient is Nothing]" DisplayName="If - stRecipient" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stRecipient NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="[&quot;stRecipient NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stRecipient it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_9">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_stRecipient it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stRecipient OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;stRecipient filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(stSystem) or String.IsNullOrWhiteSpace(stSystem) or stSystem is Nothing]" DisplayName="If - stSystem" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stSystem NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;stSystem NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_10">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stSystem it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_11">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_stSystem it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stSystem OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;stSystem filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <Sequence DisplayName="Sequence - stAttachedAbsolutePath" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="stAttacheIsValidPath" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign - Has attachment flag" sap:VirtualizedContainerService.HintSize="1579,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[blHasAttachment]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[String.IsNullOrEmpty(stAttachedAbsolutePath) or String.IsNullOrWhiteSpace(stAttachedAbsolutePath) or stAttachedAbsolutePath is Nothing]" DisplayName="If - Attachment not mandatory" sap:VirtualizedContainerService.HintSize="1579,1186" sap2010:WorkflowViewState.IdRef="If_13">
+                    <If.Then>
+                      <Sequence DisplayName="Sequence - No Attachment" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;No attachment provided - information not mandatory&quot;]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Sequence - Has Attachment" sap:VirtualizedContainerService.HintSize="1158,1026" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1116,93" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Validating attachment provided...&quot;]" />
+                        <Assign DisplayName="Assign - check contet is a path" sap:VirtualizedContainerService.HintSize="1116,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[stAttacheIsValidPath]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stAttachedAbsolutePath,"((^[\w]:\\|^\\\\)([-\w,\s,\\,.,',A-Za-zÀ-ȕ]+\.[A-Za-z]{1,5}$))").Value]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If Condition="[String.IsNullOrEmpty(stAttacheIsValidPath)]" DisplayName="If - stAttachedAbsolutePath" sap:VirtualizedContainerService.HintSize="1116,701" sap2010:WorkflowViewState.IdRef="If_12">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Sequence - stAttachedAbsolutePath NOK" sap:VirtualizedContainerService.HintSize="695,541" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="653,93" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Error" Message="[&quot;stAttachedAbsolutePath NOT filled as expected&quot;]" />
+                              <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="653,316" sap2010:WorkflowViewState.IdRef="If_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - input not filled as expected!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stAttachedAbsolutePath it's NOT a valid absolute path"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="304,156" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError + Environment.NewLine +
+"in_stAttachedAbsolutePath it's NOT a valid absolute path"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Sequence - stAttachedAbsolutePath OK" sap:VirtualizedContainerService.HintSize="376,285" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;stAttachedAbsolutePath filled&quot;]" />
+                              <Assign DisplayName="Assign - Has attachment flag" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Boolean">[blHasAttachment]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+                <If Condition="[String.IsNullOrEmpty(stSubject) or String.IsNullOrWhiteSpace(stSubject) or stSubject is Nothing]" DisplayName="If - stSubject" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stSubject NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Error" Message="[&quot;stSubject NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_17">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stSubject it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_18">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_stSubject it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stSubject OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;stSubject filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(stUserName) or String.IsNullOrWhiteSpace(stUserName) or stUserName is Nothing]" DisplayName="If - stUserName" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stUserName NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Error" Message="[&quot;stUserName NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_19">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stUserName it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_20">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_stUserName it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stUserName OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;stUserName filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <Sequence DisplayName="Sequence - scrPassword" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign - stPassword" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[stPassword]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[New System.Net.NetworkCredential(String.Empty, scrPassword).Password]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[String.IsNullOrEmpty(stPassword) or String.IsNullOrWhiteSpace(stPassword) or stPassword is Nothing]" DisplayName="If - stPassword" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Sequence - stPassword NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Error" Message="[&quot;stPassword NOT filled&quot;]" />
+                        <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_scrPassword it's MANDATORY"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_scrPassword it's MANDATORY"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Sequence - stPassword OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;stPassword filled&quot;]" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+                <If Condition="[String.IsNullOrEmpty(stEmailContentBody) or String.IsNullOrWhiteSpace(stEmailContentBody) or stEmailContentBody is Nothing]" DisplayName="If - stEmailContentBody" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - stEmailContentBody NOK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Error" Message="[&quot;stEmailContentBody NOT filled&quot;]" />
+                      <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check if another erros was already detected" sap:VirtualizedContainerService.HintSize="484,224" sap2010:WorkflowViewState.IdRef="If_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Sequence - First error message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_24">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">["Error - mandatory input not provid!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stEmailContentBody it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Sequence - Append message" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="262,64" sap2010:WorkflowViewState.IdRef="Assign_25">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[out_stMessageError]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[out_stMessageError  + Environment.NewLine +
+"in_stEmailContentBody it's MANDATORY"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - stEmailContentBody OK" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;stEmailContentBody filled&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <If Condition="[String.IsNullOrEmpty(out_stMessageError) or String.IsNullOrWhiteSpace(out_stMessageError) or out_stMessageError is Nothing]" DisplayName="If - Check Errors" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="If_22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Sequence - No Error Detected" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;No input erros detected!&quot;]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Sequence - Error Detected" sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Warn" Message="[out_stMessageError]" />
+                      <Throw DisplayName="Throw - Error" Exception="[New Exception(out_stMessageError)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,133" sap2010:WorkflowViewState.IdRef="Sequence_77">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence DisplayName="Sequence - Request Token" sap:VirtualizedContainerService.HintSize="643,1098" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="581,92" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Requesting Token&quot;]" />
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="/*URL Request*/&#xA;var client = new RestSharp.RestClient(in_stURLRequest);&#xA;client.Timeout = -1;&#xA;&#xA;/*Defining method*/&#xA;var request = new RestSharp.RestRequest(RestSharp.Method.POST);&#xA;&#xA;/*Adding headers*/&#xA;request.AddHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);&#xA;&#xA;/*Building body*/&#xA;var body = &quot;{&quot; + &quot;\n&quot; +&#xA;&quot;    \&quot;userName\&quot; : \&quot;&quot; + in_stUserName + &quot;\&quot;,&quot; + &quot;\n&quot; +&#xA;&quot;    \&quot;password\&quot; : \&quot;&quot; + in_stPassword + &quot;\&quot;&quot; + &quot;\n&quot; +&#xA;&quot;}&quot;;&#xA;&#xA;/*Adding parameters*/&#xA;request.AddParameter(&quot;application/json&quot;, body,  RestSharp.ParameterType.RequestBody);&#xA;&#xA;/*Getting Http Response*/&#xA;RestSharp.IRestResponse response = client.Execute(request);&#xA;//Console.WriteLine(&quot;Response Code: &quot; + (int)response.StatusCode + &quot; - &quot; + response.StatusCode.ToString());&#xA;//Console.WriteLine(response.Content);&#xA;&#xA;/*Output Response*/&#xA;out_nuHttpStatusCode = (int)response.StatusCode;&#xA;out_stHttpResponse = response.Content;" DisplayName="Invoke code - Token Request" sap:VirtualizedContainerService.HintSize="581,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+                  <ui:InvokeCode.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_stUserName">[stUserName]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_stPassword">[stPassword]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_stURLRequest">[stURLRequestToken]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_stHttpResponse">[stHttpResponseToken]</OutArgument>
+                    <OutArgument x:TypeArguments="x:Int32" x:Key="out_nuHttpStatusCode">[nuHttpStatusCodeToken]</OutArgument>
+                  </ui:InvokeCode.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeCode>
+                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[nuHttpStatusCodeToken &lt;&gt; 200]" sap:VirtualizedContainerService.HintSize="581,669" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                  <Sequence x:Key="True" DisplayName="Sequence - Fail Token" sap:VirtualizedContainerService.HintSize="541,462" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Warn" Message="[&quot;SendEmail_API couldn't get token successfully&quot;]" />
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="479,25" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;Token Http Request Status Code: &quot; + nuHttpStatusCodeToken.ToString + Environment.NewLine +&#xA;&quot;Token Http Request Response: &quot; +stHttpResponseToken.ToString + Environment.NewLine]" />
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Error - inable of getting token!" + Environment.NewLine +
+"Please check messages below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"Http Request Status Code "	+ nuHttpStatusCodeToken.ToString + Environment.NewLine +
+"Http Request Response "		+ stHttpResponseToken.ToString + Environment.NewLine]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <Throw DisplayName="Throw - Error" Exception="[New SystemException( io_jsExecutionReport(&quot;mensagem&quot;).ToString )]" sap:VirtualizedContainerService.HintSize="479,25" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                  </Sequence>
+                  <Sequence x:Key="False" DisplayName="Sequence - Successful Token" sap:VirtualizedContainerService.HintSize="416,506" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Warn" Message="[&quot;Request token respond successful!&quot;]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;Extracting token from body response...&quot;]" />
+                    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsHttpResponseToken]" JsonString="[stHttpResponseToken]" />
+                    <Assign DisplayName="Assign - Token" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_28">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[stToken]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[jsHttpResponseToken("token").ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </Switch>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="647,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,133" sap2010:WorkflowViewState.IdRef="Sequence_78">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence sap:VirtualizedContainerService.HintSize="559,1356" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="497,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[blHasAttachment]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[String.IsNullOrEmpty(stAttachedAbsolutePath) Or &#xA;String.IsNullOrWhiteSpace(stAttachedAbsolutePath) Or &#xA;stAttachedAbsolutePath Is Nothing]" sap:VirtualizedContainerService.HintSize="497,411" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence x:Key="True" DisplayName="Sequence - No Attachment" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="LogMessage_36" Level="Info" Message="[&quot;No attachment provided - information not mandatory&quot;]" />
+                  </Sequence>
+                  <Sequence x:Key="False" DisplayName="Sequence - Has Attachment" sap:VirtualizedContainerService.HintSize="558,817" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,92" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Info" Message="[&quot;Validating attachment provided...&quot;]" />
+                    <Assign DisplayName="Assign - check contet is a path" sap:VirtualizedContainerService.HintSize="497,81" sap2010:WorkflowViewState.IdRef="Assign_31">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[stAttacheIsValidPath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(stAttachedAbsolutePath,"((^[\w]:\\|^\\\\)([-\w,\s,\\,.,',A-Za-zÀ-ȕ]+\.[A-Za-z]{1,5}$))").Value]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[String.IsNullOrEmpty(stAttacheIsValidPath)]" sap:VirtualizedContainerService.HintSize="497,161" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+                      <Sequence x:Key="True" DisplayName="Sequence - stAttachedAbsolutePath NOK" sap:VirtualizedContainerService.HintSize="416,296" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Error" Message="[&quot;stAttachedAbsolutePath NOT filled as expected&quot;]" />
+                        <Assign DisplayName="Assign - Faced Error" sap:VirtualizedContainerService.HintSize="434,85" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Error - input not filled as expected!" + Environment.NewLine +
+"Please check message below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"in_stAttachedAbsolutePath it's NOT a valid absolute path"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                      <Sequence x:Key="False" DisplayName="Sequence - stAttachedAbsolutePath OK" sap:VirtualizedContainerService.HintSize="416,292" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;stAttachedAbsolutePath filled&quot;]" />
+                        <Assign DisplayName="Assign - Has attachment flag" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_34">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Boolean">[blHasAttachment]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </Switch>
+                  </Sequence>
+                </Switch>
+                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[blHasAttachment]" sap:VirtualizedContainerService.HintSize="497,464" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence x:Key="True" DisplayName="Sequence - Request Send Email (Has Attachment)" sap:VirtualizedContainerService.HintSize="416,397" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;Requesting send email...&quot;]" />
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="/*URL Request*/&#xA;var client = new RestSharp.RestClient(in_stURLRequest);&#xA;client.Timeout = -1;&#xA;&#xA;/*Defining method*/&#xA;var request = new RestSharp.RestRequest(RestSharp.Method.POST);&#xA;&#xA;/*Adding headers*/&#xA;request.AddHeader(&quot;Content-Type&quot;, &quot;multipart/form-data&quot;);&#xA;request.AddHeader(&quot;Authorization&quot;, in_stToken);&#xA;&#xA;/*Adding attach parameter*/&#xA;request.AddFile(&quot;anexosMFile&quot;, in_stAttachedAbsolutePath);&#xA;&#xA;/*Adding more parameters*/&#xA;request.AddParameter(&quot;destinatarios&quot;, in_stRecipient);&#xA;request.AddParameter(&quot;remetente&quot;, in_stSender);&#xA;request.AddParameter(&quot;assunto&quot;, in_stSubject);&#xA;request.AddParameter(&quot;corpo&quot;, in_stEmailContentBody);&#xA;request.AddParameter(&quot;sistema&quot;, in_stSystem);&#xA;&#xA;/*Getting Http Response*/&#xA;RestSharp.IRestResponse response = client.Execute(request);&#xA;//Console.WriteLine(&quot;Response Code: &quot; + (int)response.StatusCode + &quot; - &quot; + response.StatusCode.ToString());&#xA;//Console.WriteLine(response.Content);&#xA;&#xA;/*Output response*/&#xA;out_nuHttpStatusCode = (int)response.StatusCode;&#xA;out_stHttpResponse = response.Content;" DisplayName="Invoke code - Envio de Email API" sap:VirtualizedContainerService.HintSize="354,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+                      <ui:InvokeCode.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stURLRequest">[stURLRequestEmail]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stToken">[stToken]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stAttachedAbsolutePath">[stAttachedAbsolutePath]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stRecipient">[stRecipient]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSender">[stSender]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSubject">[in_stSubject]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stEmailContentBody">[stEmailContentBody]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSystem">[stSystem]</InArgument>
+                        <OutArgument x:TypeArguments="x:Int32" x:Key="out_nuHttpStatusCode">[nuHttpStatusCodeEmail]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_stHttpResponse">[stHttpResponseEmail]</OutArgument>
+                      </ui:InvokeCode.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InvokeCode>
+                  </Sequence>
+                  <Sequence x:Key="False" DisplayName="Sequence - Request Send Email (No Attachment)" sap:VirtualizedContainerService.HintSize="416,257" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;Requesting send email...&quot; + Environment.NewLine +&#xD;&#xA;&quot;Tentative: &quot; + nuTrySend.ToString]" />
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="/*URL Request*/&#xA;var client = new RestSharp.RestClient(in_stURLRequest);&#xA;client.Timeout = -1;&#xA;&#xA;/*Defining method*/&#xA;var request = new RestSharp.RestRequest(RestSharp.Method.POST);&#xA;&#xA;/*Adding headers*/&#xA;request.AddHeader(&quot;Content-Type&quot;, &quot;multipart/form-data&quot;);&#xA;request.AddHeader(&quot;Authorization&quot;, in_stToken);&#xA;&#xA;/*Adding attach parameter*/&#xA;request.AlwaysMultipartFormData = true;&#xA;&#xA;/*Adding more parameters*/&#xA;request.AddParameter(&quot;destinatarios&quot;, in_stRecipient);&#xA;request.AddParameter(&quot;remetente&quot;, in_stSender);&#xA;request.AddParameter(&quot;assunto&quot;, in_stSubject);&#xA;request.AddParameter(&quot;corpo&quot;, in_stEmailContentBody);&#xA;request.AddParameter(&quot;sistema&quot;, in_stSystem);&#xA;&#xA;/*Getting Http Response*/&#xA;RestSharp.IRestResponse response = client.Execute(request);&#xA;//Console.WriteLine(&quot;Response Code: &quot; + (int)response.StatusCode + &quot; - &quot; + response.StatusCode.ToString());&#xA;//Console.WriteLine(response.Content);&#xA;&#xA;/*Output response*/&#xA;out_nuHttpStatusCode = (int)response.StatusCode;&#xA;out_stHttpResponse = response.Content;" DisplayName="Invoke code - Envio de Email API" sap:VirtualizedContainerService.HintSize="354,25" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+                      <ui:InvokeCode.Arguments>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stURLRequest">[stURLRequestEmail]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stToken">[stToken]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stAttachedAbsolutePath">[in_stAttachedAbsolutePath]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stRecipient">[stRecipient]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSender">[stSender]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSubject">[in_stSubject]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stEmailContentBody">[stEmailContentBody]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_stSystem">[stSystem]</InArgument>
+                        <OutArgument x:TypeArguments="x:Int32" x:Key="out_nuHttpStatusCode">[nuHttpStatusCodeEmail]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String" x:Key="out_stHttpResponse">[stHttpResponseEmail]</OutArgument>
+                      </ui:InvokeCode.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:InvokeCode>
+                  </Sequence>
+                </Switch>
+                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[nuHttpStatusCodeEmail &lt;&gt; 200]" sap:VirtualizedContainerService.HintSize="497,161" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                  <Sequence x:Key="True" DisplayName="Sequence - Fail Email" sap:VirtualizedContainerService.HintSize="498,470" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Warn" Message="[&quot;SendEmail_API couldn't send e-mail successfully&quot;]" />
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="479,25" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,201" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Email Http Request Status Code: &quot; + nuHttpStatusCodeEmail.ToString + Environment.NewLine +&#xA;&quot;Email Http Request Response: &quot; +stHttpResponseEmail.ToString + Environment.NewLine]" />
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:CommentOut>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Error - inable of sending e-mail!" + Environment.NewLine +
+"Please check messages below: " + Environment.NewLine +
+"************************************"  + Environment.NewLine +
+"Http Request Status Code "	+ nuHttpStatusCodeEmail.ToString + Environment.NewLine +
+"Http Request Response "		+ stHttpResponseEmail.ToString + Environment.NewLine]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                    <Throw DisplayName="Throw - Error" Exception="[New SystemException( io_jsExecutionReport(&quot;mensagem&quot;).ToString )]" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                  </Sequence>
+                  <Sequence x:Key="False" DisplayName="Sequence - Successful Email" sap:VirtualizedContainerService.HintSize="416,200" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,92" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Warn" Message="[&quot;Request send email respond successful!&quot;]" />
+                  </Sequence>
+                </Switch>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="563,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

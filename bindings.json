@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "resources": [
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "io_jsConfig(\"FILA\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "io_jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "bucket",
+      "metadata": {
+        "name": {
+          "defaultValue": "io_jsConfig(\"BUCKET_IMPOSTACAOGRC\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "io_jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "folderPath": {
+          "defaultValue": "io_jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "io_jsConfig(\"FILA\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "io_jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "name": {
+          "defaultValue": "jsAssets( stAsset.ToString )",
+          "isExpression": true
+        },
+        "folderPath": {
+          "defaultValue": "jsConfig(\"FOLDER\")",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "name": {
+          "defaultValue": "jsCredentials( stCredentials.ToString)",
+          "isExpression": true
+        },
+        "folderPath": {
+          "defaultValue": "jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "jsConfig(\"FILA\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "jsConfig(\"FOLDER\").ToString",
+          "isExpression": false
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "folderPath": {
+          "defaultValue": "jsConfig(\"FOLDER\")",
+          "isExpression": false
+        }
+      }
+    }
+  ]
+}
