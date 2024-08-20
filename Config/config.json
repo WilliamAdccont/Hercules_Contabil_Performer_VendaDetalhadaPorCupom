@@ -5,7 +5,7 @@
 	"FOLDER" : "Contabil",
 	"PROCESSOS_UTILIZADOS" : "",
 	"FILA" : "Hercules_VendasDetalhadasPorCupom",
-	"NOME_PRODUTO":" Vendas detalhadas por cupom",
+	"NOME_PRODUTO":"Vendas detalhadas por cupom",
 	"BUCKET" : "",
 	"TEMP_RPA" : "C:\\temp_RPA",
 	"REPORT_PATH" : "C:\\temp_RPA\\EXECUTION_REPORT.xlsx",

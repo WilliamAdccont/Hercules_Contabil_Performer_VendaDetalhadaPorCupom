@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>933,3547</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>997,3205</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>L_SEGBR_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -107,20 +107,15 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="1Login_Degustone" sap:VirtualizedContainerService.HintSize="771,3482" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="1Login_Degustone" sap:VirtualizedContainerService.HintSize="771,3140" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="blInvalidEnvironment" />
       <Variable x:TypeArguments="x:Boolean" Name="blInvalidUnity" />
       <Variable x:TypeArguments="x:String" Name="Password" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new list(of string)]" Name="list_string" />
-      <Variable x:TypeArguments="x:Int32" Name="counter">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="counter" />
       <Variable x:TypeArguments="x:Boolean" Name="blNewVersao" />
       <Variable x:TypeArguments="x:Boolean" Name="blBloqueioFinanceiro" />
       <Variable x:TypeArguments="x:Boolean" Name="blUsuarioLogado" />
@@ -130,7 +125,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="729,3394" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="729,3052" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,7 +133,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="1.1 Sequence - Login" sap:VirtualizedContainerService.HintSize="691,3144" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <Sequence DisplayName="1.1 Sequence - Login" sap:VirtualizedContainerService.HintSize="691,2802" sap2010:WorkflowViewState.IdRef="Sequence_35">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -146,7 +141,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="649,92" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;1.1 Iniciando: (Try) Sequence - Login Degustone&quot;]" />
-          <Assign sap:VirtualizedContainerService.HintSize="649,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign sap:VirtualizedContainerService.HintSize="649,82" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[Password]</OutArgument>
             </Assign.To>
@@ -154,10 +149,10 @@
               <InArgument x:TypeArguments="x:String">[io_jsCredentialsValues("FISCAL_DEGUSTONE_CREDENTIALS").Password]</InArgument>
             </Assign.Value>
           </Assign>
-          <While DisplayName="While Normaliza senha" sap:VirtualizedContainerService.HintSize="649,385" sap2010:WorkflowViewState.IdRef="While_1">
+          <While DisplayName="While Normaliza senha" sap:VirtualizedContainerService.HintSize="649,25" sap2010:WorkflowViewState.IdRef="While_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -180,13 +175,13 @@
               </Assign>
             </Sequence>
           </While>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="1.2 Use Browser Chrome: Degust One" sap:VirtualizedContainerService.HintSize="649,2164" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" OpenMode="Always" ScopeGuid="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="1.2 Use Browser Chrome: Degust One" sap:VirtualizedContainerService.HintSize="649,2181" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" IsIncognito="True" OpenMode="Always" ScopeGuid="cde1da36-e410-4242-96a4-e6a202cbddc6" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="615,1947" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="615,1964" sap2010:WorkflowViewState.IdRef="Sequence_40">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -320,7 +315,7 @@
                   </ui:Click>
                   <ui:CommentOut DisplayName="Comment Out (Utilizar em uma nova release)" sap:VirtualizedContainerService.HintSize="573,25" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                     <ui:CommentOut.Body>
-                      <Sequence sap2010:Annotation.AnnotationText="Utilizar este elemento em uma nova versão&#xA;Ele informa que o sistema esta fora do ar, apos 30 segundos tentando acesso" DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,170" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                      <Sequence sap2010:Annotation.AnnotationText="Utilizar este elemento em uma nova versão&#xA;Ele informa que o sistema esta fora do ar, apos 30 segundos tentando acesso" DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_47">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -440,9 +435,9 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:UiElementExists>
-                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'MAIN'" sap:VirtualizedContainerService.HintSize="573,157" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="esc" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="573,137" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="esc" KeyModifiers="None" SpecialKey="True">
                     <ui:SendHotkey.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5731a348-1647-4169-b7ba-375524be3e68" InformativeScreenshot="16e2db6a9d6d325447f13094f2e39c0f" Selector="&lt;webctrl tag='MAIN' /&gt;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="4ea9b138-143f-49b6-994e-d2b6d6be54d2">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -452,13 +447,13 @@
                       </ui:Target>
                     </ui:SendHotkey.Target>
                   </ui:SendHotkey>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  Degust One'" sap:VirtualizedContainerService.HintSize="573,773" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="bd6dcc2133b71d21823c852cf75e3e1a" Selector="&lt;html app='chrome.exe' title='Degust One' /&gt;">
+                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe  Degust One'" sap:VirtualizedContainerService.HintSize="573,810" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="bd6dcc2133b71d21823c852cf75e3e1a" Selector="&lt;html app='chrome.exe' title='Degust One' /&gt;">
                     <ui:BrowserScope.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,626" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,663" sap2010:WorkflowViewState.IdRef="Sequence_48">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -473,14 +468,14 @@
                               </ui:Target>
                             </ui:UiElementExists.Target>
                           </ui:UiElementExists>
-                          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[blBloqueioFinanceiro]" sap:VirtualizedContainerService.HintSize="497,399" sap2010:WorkflowViewState.IdRef="Switch`1_8">
+                          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch" Expression="[blBloqueioFinanceiro]" sap:VirtualizedContainerService.HintSize="497,436" sap2010:WorkflowViewState.IdRef="Switch`1_8">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="416,195" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                            <Sequence x:Key="True" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_49">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -508,6 +503,24 @@
                                   </ui:Target>
                                 </ui:Click.Target>
                               </ui:Click>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="374,25" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Throw Exception="[new BusinessRuleException(&quot;Exceção de negocio: &quot; + io_jsContent(&quot;Nome_Loja&quot;).ToString + &quot; tem pendencia com o Degustone&quot;)]" sap:VirtualizedContainerService.HintSize="374,25" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:CommentOut>
                             </Sequence>
                           </Switch>
                         </Sequence>
@@ -711,18 +724,17 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="1.1 Sequence - Erro de Sistema Login Degustone" sap:VirtualizedContainerService.HintSize="416,58" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <Sequence sap:VirtualizedContainerService.HintSize="521,540" sap2010:WorkflowViewState.IdRef="Sequence_52">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,107" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;1.1 Iniciando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Info" Message="[&quot;1.1 Iniciando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
                       </ui:AssignOperation.To>
@@ -733,7 +745,7 @@
 )]</InArgument>
                       </ui:AssignOperation.Value>
                     </ui:AssignOperation>
-                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
                       <ui:AssignOperation.To>
                         <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("exceptionHandling")]</OutArgument>
                       </ui:AssignOperation.To>
@@ -744,8 +756,8 @@
                   </scg:List>
                 </ui:MultipleAssign.AssignOperations>
               </ui:MultipleAssign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431,107" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info" Message="[&quot;1.1 Finalizando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
-              <Throw Exception="[New Exception(io_jsExecutionReport(&quot;mensagem&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="431,25" sap2010:WorkflowViewState.IdRef="Throw_2" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Info" Message="[&quot;1.1 Finalizando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+              <Throw Exception="[New Exception(io_jsExecutionReport(&quot;mensagem&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="479,25" sap2010:WorkflowViewState.IdRef="Throw_3" />
             </Sequence>
           </ActivityAction>
         </Catch>
@@ -760,20 +772,62 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
             </ActivityAction.Argument>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-              <ui:MultipleAssign.AssignOperations>
-                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:Object">["Exceção de negocio: " + io_jsContent("Nome_Loja").ToString + " tem pendencia com o Degustone"]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
-                </scg:List>
-              </ui:MultipleAssign.AssignOperations>
-            </ui:MultipleAssign>
+            <Sequence sap:VirtualizedContainerService.HintSize="583,799" sap2010:WorkflowViewState.IdRef="Sequence_54">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence sap:VirtualizedContainerService.HintSize="541,563" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Info" Message="[&quot;1.1 Iniciando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,147" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object" xml:space="preserve">[If ( io_jsExecutionReport("mensagem").ToString &lt;&gt; "", 
+		"Exceção de negocio: " + io_jsContent("Nome_Loja").ToString + " tem pendencia com o Degustone"+ " - " + io_jsExecutionReport("mensagem").ToString + " - " + exception.Message.ToString,
+		"Erro: Falha de negocio no 1.1 Login Degustone" + " - " + exception.Message.ToString
+)]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("exceptionHandling")]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Object">["SystemException"]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="LogMessage_40" Level="Info" Message="[&quot;1.1 Finalizando: (Catch) Sequence -Erro de Sistema Login Degustone&quot;]" />
+                <Throw Exception="[New Exception(io_jsExecutionReport(&quot;mensagem&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="479,25" sap2010:WorkflowViewState.IdRef="Throw_5" />
+              </Sequence>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="541,116" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Object">[io_jsExecutionReport("mensagem")]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Object">["Exceção de negocio: " + io_jsContent("Nome_Loja").ToString + " tem pendencia com o Degustone"]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

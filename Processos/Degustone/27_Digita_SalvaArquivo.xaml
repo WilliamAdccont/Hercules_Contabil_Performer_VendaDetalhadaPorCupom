@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1239,2409</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1313,2440</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PreencheSEGP0541_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,7 +108,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Esta sequencia salva arquivo&#xA;Criado:: 19/07/2024&#xA;Desenvolvedor: William F Santos" DisplayName="4SalvaArquivo" sap:VirtualizedContainerService.HintSize="695,2344" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Esta sequencia salva arquivo&#xA;Criado:: 19/07/2024&#xA;Desenvolvedor: William F Santos" DisplayName="4SalvaArquivo" sap:VirtualizedContainerService.HintSize="695,2375" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="blSubstituir" />
       <Variable x:TypeArguments="x:String" Name="stPathFolder" />
@@ -124,7 +124,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="653,2256" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="653,2287" sap2010:WorkflowViewState.IdRef="TryCatch_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -132,7 +132,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence DisplayName="4.1 Sequence - Salvar como" sap:VirtualizedContainerService.HintSize="615,2028" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <Sequence DisplayName="4.1 Sequence - Salvar como" sap:VirtualizedContainerService.HintSize="615,2059" sap2010:WorkflowViewState.IdRef="Sequence_35">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -147,13 +147,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:LogMessage>
-          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'chrome.exe  Salvar como'" sap:VirtualizedContainerService.HintSize="573,1692" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="6e66fbe018d92a9e1dd637a2a6742aa7" Selector="&lt;wnd app='chrome.exe' omit:cls='#32770' title='Salvar como' /&gt;" TimeoutMS="600000">
+          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'chrome.exe  Salvar como'" sap:VirtualizedContainerService.HintSize="573,1723" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="6e66fbe018d92a9e1dd637a2a6742aa7" Selector="&lt;wnd app='chrome.exe' omit:cls='#32770' title='Salvar como' /&gt;" TimeoutMS="600000">
             <ui:WindowScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="539,1545" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="539,1576" sap2010:WorkflowViewState.IdRef="Sequence_37">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="stCaminho_Arquivo" />
                   </Sequence.Variables>
@@ -163,7 +163,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:Comment sap:VirtualizedContainerService.HintSize="497,304" sap2010:WorkflowViewState.IdRef="Comment_1" Text="utilize esta asset abaixo para colocar o nome do arquivo junto com a pasta&#xA;&#xA;Modelo&#xA;nome da loja&#xA;pasta Prestacao de contas&#xA;M:\Adccont\Publico\Contabil\_mes_\_UF_\Prestacao de contas\_NomeDaLoja_.pdf&#xA;&#xA;io_jsAssets(&quot;PATH_FOLDER_CONTABIL&quot;).ToString + &quot;\&quot; + now.AddMonths(-1).ToString(&quot;MMM&quot;) + &quot;\&quot; + io_jsContent(&quot;UF_Loja&quot;).ToString + &quot;\&quot; + io_jsConfig(&quot;NOME_PRODUTO&quot;).ToString + &quot;\&quot;+ io_jsContent(&quot;Nome_Loja&quot;).ToString + &quot;.pdf&quot;" />
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="497,333" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="497,364" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
@@ -220,6 +220,14 @@
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
                             <InArgument x:TypeArguments="x:String">[stNomeLoja.replace("[","(")]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[stNomeLoja]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[stNomeLoja.Replace("/","-")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">

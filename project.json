@@ -23,7 +23,7 @@
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
     "isPausable": true,
-    "isAttended": false,
+    "isAttended": true,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "workflowSerialization": "DataContract",
